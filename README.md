@@ -1,13 +1,6 @@
 # Midicraft songs
 
-Noteblock covers by Smelvin Creations, made with Midicraft, my mod for turning songs into working note block machines. Each song is a `.midicraft` file holding the whole arrangement: every note, instrument and layer, ready to play or build.
-
-## How to get a cover in your world
-
-1. Install Midicraft. It's on Planet Minecraft on my profile, and it's coming to Modrinth soon.
-2. Download a song below.
-3. In game, open the Midicraft composer and use **File > Import a song** to load the `.midicraft` file.
-4. Press **Play** to hear it. When you're ready, use **Song > Build composition** to build the note block machine. You can paste it straight into your world, or export it as a Litematica schematic and build it by hand in survival. The height, width and block palette are yours to choose.
+Noteblock covers by Smelvin Creations, made with Midicraft, my mod for turning songs into working note block machines. Each song is available as a schematic, or a .midicraft file, the mod's custom file type. Using the .midicraft file type allows you to set your own block palette, width, and height for the creation. The mod is in review on Modrinth and available right now at https://github.com/ekra8154/midicraft/releases/latest !
 
 ## Songs
 
