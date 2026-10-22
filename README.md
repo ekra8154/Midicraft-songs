@@ -1,6 +1,6 @@
 # Midicraft songs
 
-Noteblock covers by Smelvin Creations, made with Midicraft, my mod for turning songs into working note block machines. Each song is a `.midicraft` file holding the whole arrangement: every note, instrument and layer, ready to play or build.
+Noteblock covers by Smelvin Creations, made with Midicraft, my mod for turning songs into working note block machines. Each song is available as a schematic, or a .midicraft file, the mod's custom file type. Using the .midicraft file type allows you to set your own block palette, width, and height for the creation. The mod is in review on Modrinth and available right now at https://github.com/ekra8154/midicraft/releases/latest !
 
 ## How to get a cover in your world
 
