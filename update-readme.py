@@ -22,6 +22,9 @@ RAW = "https://github.com/ekra8154/Midicraft-songs/raw/main/"
 START = "<!-- songs:start -->"
 END = "<!-- songs:end -->"
 TAG = " (smelvincreations)"
+# What the Download column links, in this order. The .midicraft stays in every folder, but until
+# Midicraft is out the schematics are what people can use; add ".midicraft" back here then.
+LISTED = (".litematic", ".schem")
 
 
 def header_and_name(path):
@@ -54,8 +57,8 @@ def row(folder):
     def link(path):
         return f"[{path.suffix}]({RAW}{quote(path.relative_to(ROOT).as_posix())})"
 
-    downloads = [link(song_file)] + [link(extra) for extra in sorted(folder.iterdir())
-                                     if extra.is_file() and extra != song_file]
+    files = sorted(path for path in folder.iterdir() if path.is_file())
+    downloads = [link(path) for kind in LISTED for path in files if path.suffix == kind]
     return song.strip(), f"| {song.strip()} | {artist.strip()} | {arranged} | {video} | {', '.join(downloads)} |"
 
 
