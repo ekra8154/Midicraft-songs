@@ -54,10 +54,17 @@ def row(folder):
     video = re.search(r"https?://\S+", header.get("description") or "")
     video = f"[Watch]({video.group(0)})" if video else ""
 
-    def link(path):
-        return f"[{path.suffix}]({RAW}{quote(path.relative_to(ROOT).as_posix())})"
-
     files = sorted(path for path in folder.iterdir() if path.is_file())
+
+    def link(path):
+        # Named by what follows the tag where a folder holds two of one kind, so the 23x1 build
+        # and a build with its scenery read apart: "23x1 .litematic", "with tree .litematic".
+        label = path.suffix
+        if sum(other.suffix == path.suffix for other in files) > 1:
+            tail = path.stem.split("smelvincreations-", 1)
+            label = (tail[1].replace("-", " ") + " " if len(tail) == 2 else "") + path.suffix
+        return f"[{label}]({RAW}{quote(path.relative_to(ROOT).as_posix())})"
+
     downloads = [link(path) for kind in LISTED for path in files if path.suffix == kind]
     return song.strip(), f"| {song.strip()} | {artist.strip()} | {arranged} | {video} | {', '.join(downloads)} |"
 
