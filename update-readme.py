@@ -50,7 +50,8 @@ def row(folder):
     source = header.get("source") or ""
     kind = ("MIDI" if source.startswith("MIDI") else "NBS" if source.startswith("NBS")
             else "NBS" if "noteblock world" in credits.lower() else "MIDI")
-    arranged = f"{kind} by {credits}" if credits else ""
+    # "Name (site)", or the site alone for an anonymous upload: "MIDI from Online sequencer".
+    arranged = (f"{kind} by {credits}" if "(" in credits else f"{kind} from {credits}") if credits else ""
     video = re.search(r"https?://\S+", header.get("description") or "")
     video = f"[Watch]({video.group(0)})" if video else ""
 
