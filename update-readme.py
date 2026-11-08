@@ -25,6 +25,8 @@ TAG = " (smelvincreations)"
 # What the Download column links, in this order. The .midicraft stays in every folder, but until
 # Midicraft is out the schematics are what people can use; add ".midicraft" back here then.
 LISTED = (".litematic", ".schem")
+# Folders that are in the repo to be linked to directly but are left off the table.
+UNLISTED = {"through-the-nether-and-plains"}
 
 
 def header_and_name(path):
@@ -71,7 +73,8 @@ def row(folder):
 
 
 def main():
-    rows = sorted(filter(None, (row(folder) for folder in SONGS.iterdir() if folder.is_dir())),
+    rows = sorted(filter(None, (row(folder) for folder in SONGS.iterdir()
+                                          if folder.is_dir() and folder.name not in UNLISTED)),
                   key=lambda entry: entry[0].lower())
     table = "\n".join(["| Song | Artist | Arranged from | Video | Download |",
                        "|---|---|---|---|---|"] + [line for _, line in rows])
